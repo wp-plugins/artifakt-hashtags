@@ -38,7 +38,13 @@ features you'd like to see.
 
 = 2.0 =
 Massive change! Moving to custom taxonomy "hashtag" instead of simple search
-results page.
+results page. 
+
+Warning to the few v1.0 users: you will have to go back and resave any posts
+with hashtags in order for them to properly be adding the the new custom
+taxonomy. You can do so in bulk by selecting the posts the clicking "bulk
+edit" then "update", you don't need to make any changes but the plugin just
+needs to fire on save.
 
 = 1.0 =
 Plugin launch!
