@@ -3,7 +3,7 @@ Contributors: artifaktcom
 Tags: posts, hashtags, search
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 2.0
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,9 @@ Go to Settings->Permalinks (this will flush the rewrite rules) then try again.
 We are looking into this problem and will try to have an update soon.
 
 == Changelog ==
+
+= 2.2 =
+Fixing link issue. Flush rewrite rules still getting worked on.
 
 = 2.0 =
 Massive change! Moving to custom taxonomy "hashtag" instead of simple search

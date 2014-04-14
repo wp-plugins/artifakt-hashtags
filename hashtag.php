@@ -5,7 +5,7 @@ Plugin URI: http://www.artifakt.ca
 Description: The artifakt Team's custom Hashtag WordPress plugin allows you to use hashtags in your posts that become searchable throughout your website.
 Author: The artifakt Team
 Author URI: http://www.artifakt.ca
-Version: 2.0
+Version: 2.2
 */
 class artifaktHashtags {
 	/*--------------------------------------------*
@@ -92,7 +92,9 @@ class artifaktHashtags {
 	function hashtag_content_filter($content) {
 		if ( preg_match_all('/#([\p{L}\p{Mn}]+)/u',$content,$matches) ) {
 			foreach( $matches[1] as $hashtag ) {
-				$content = str_replace('#'.$hashtag, '<a href="'.get_home_url().'/?hashtags='.urlencode($hashtag).'">#'.$hashtag.'</a>',$content);
+				$hashTerm = get_term_by('name', $hashtag, 'hashtags');
+				$hashLink = get_term_link( $hashTerm, 'hashtags');
+				$content = str_replace('#'.$hashtag, '<a href="'.esc_url( $hashLink ).'">#'.$hashtag.'</a>',$content);
 			}
 		}
 		return $content;
