@@ -92,7 +92,9 @@ class artifaktHashtags {
 	function hashtag_content_filter($content) {
 		if ( preg_match_all('/#([\p{L}\p{Mn}]+)/u',$content,$matches) ) {
 			foreach( $matches[1] as $hashtag ) {
-				$content = str_replace('#'.$hashtag, '<a href="'.get_home_url().'/?hashtags='.urlencode($hashtag).'">#'.$hashtag.'</a>',$content);
+				$hashTerm = get_term_by('name', $hashtag, 'hashtags');
+				$hashLink = get_term_link( $hashTerm, 'hashtags');
+				$content = str_replace('#'.$hashtag, '<a href="'.esc_url( $hashLink ).'">#'.$hashtag.'</a>',$content);
 			}
 		}
 		return $content;
