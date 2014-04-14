@@ -34,6 +34,11 @@ features you'd like to see.
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. When writing a post simply use hashtags on key words ( #wordpress ) and they will turn into links when the post is displayed  
 
+== Frequently Asked Questions ==
+= Help I get a 404 error when I click a hashtag! =
+Go to Settings->Permalinks (this will flush the rewrite rules) then try again.
+We are looking into this problem and will try to have an update soon.
+
 == Changelog ==
 
 = 2.0 =
