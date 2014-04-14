@@ -3,7 +3,7 @@ Contributors: artifaktcom
 Tags: posts, hashtags, search
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 2.2
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,10 @@ Go to Settings->Permalinks (this will flush the rewrite rules) then try again.
 We are looking into this problem and will try to have an update soon.
 
 == Changelog ==
+
+= 2.3 =
+Hopefully fixes flush rewrite rules bug. Also fixes a bug if upgraded from 1.0
+in which terms may not exist.
 
 = 2.2 =
 Fixing link issue. Flush rewrite rules still getting worked on.

@@ -5,7 +5,7 @@ Plugin URI: http://www.artifakt.ca
 Description: The artifakt Team's custom Hashtag WordPress plugin allows you to use hashtags in your posts that become searchable throughout your website.
 Author: The artifakt Team
 Author URI: http://www.artifakt.ca
-Version: 2.2
+Version: 2.3
 */
 class artifaktHashtags {
 	/*--------------------------------------------*
@@ -23,6 +23,7 @@ class artifaktHashtags {
 		//Hook up to the init action
 		add_action( 'init', array( &$this, 'init_artifakt_hashtags' ) );
 		add_action( 'init', array( &$this, 'register_taxonomy_hashtags') );
+        	$this->wp_rewrite = & $GLOBALS["wp_rewrite"];
 	}
   
 	function register_taxonomy_hashtags() {
@@ -58,10 +59,10 @@ class artifaktHashtags {
 	}
 	/**
 	 * Runs when the plugin is activated
-	 */  
+	 */ 
 	function install_artifakt_hashtags() {
 		$this->register_taxonomy_hashtags();
-		flush_rewrite_rules();
+		$this->wp_rewrite->flush_rules();
 	}
 	
 	/**
@@ -92,9 +93,12 @@ class artifaktHashtags {
 	function hashtag_content_filter($content) {
 		if ( preg_match_all('/#([\p{L}\p{Mn}]+)/u',$content,$matches) ) {
 			foreach( $matches[1] as $hashtag ) {
-				$hashTerm = get_term_by('name', $hashtag, 'hashtags');
-				$hashLink = get_term_link( $hashTerm, 'hashtags');
-				$content = str_replace('#'.$hashtag, '<a href="'.esc_url( $hashLink ).'">#'.$hashtag.'</a>',$content);
+				$term = term_exists( $hashtag, 'hashtags');
+				if ( $term !== 0 && $term !== null ) {
+					$hashTerm = get_term_by('name', $hashtag, 'hashtags');
+					$hashLink = get_term_link( $hashTerm, 'hashtags');
+					$content = str_replace('#'.$hashtag, '<a href="'.esc_url( $hashLink ).'">#'.$hashtag.'</a>',$content);
+				}
 			}
 		}
 		return $content;
