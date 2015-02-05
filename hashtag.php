@@ -5,7 +5,7 @@ Plugin URI: http://www.artifakt.ca
 Description: The artifakt Team's custom Hashtag WordPress plugin allows you to use hashtags in your posts that become searchable throughout your website.
 Author: The artifakt Team
 Author URI: http://www.artifakt.ca
-Version: 2.3
+Version: 2.4
 */
 class artifaktHashtags {
 	/*--------------------------------------------*
